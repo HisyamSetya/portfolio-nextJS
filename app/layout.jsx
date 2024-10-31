@@ -1,5 +1,7 @@
 import "@style/global.css";
 import Nav from "@components/Nav";
+import { Suspense } from "react";
+import Loading from "@app/loading";
 
 export const metadata = {
   title: "Welcome",

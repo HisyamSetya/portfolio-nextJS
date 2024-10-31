@@ -3,6 +3,8 @@ import Technology from "@components/Technology";
 import Experience from "@components/Experience";
 import GetInTouch from "@components/GetInTouch";
 import Contact from "@components/Contact";
+import { Suspense } from "react";
+import Loading from "./loading";
 // import pool from "@utils/postgres";
 
 // // you can also use async/await

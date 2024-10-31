@@ -8,14 +8,8 @@ import { useActionState } from "react";
 import handleForm from "@actions/handleForm";
 
 const Contact = () => {
-  const [input, setInput] = useState({ userInput: "", valueUser: "" });
-  const [state, action, isPending] = useActionState(handleForm, null);
-
-  function handleChange(e) {
-    const { value, name } = e.target;
-
-    setInput({ ...input, userInput: name, valueUser: value });
-  }
+  const [message, action, isPending] = useActionState(handleForm, null);
+  console.log(isPending);
 
   return (
     <>
@@ -25,9 +19,8 @@ const Contact = () => {
         </h3>
 
         <form
+          className="flex  flex-col items-center w-full"
           action={(formData) => {
-            // console.log(e);
-
             //Feedback Form Data
             const rawFormData = {
               email: formData.get("email"),
@@ -48,13 +41,11 @@ const Contact = () => {
             //Validate Null of String
             if (!email || !subject || !text) alert("Form can't be empty");
             //Validate max of string
-            if (email.length > 35 || subject.length > 50 || text.length > 350)
-              alert("MAX CHAR!");
+            if (email.length > 35 || subject.length > 50 || text.length > 350) alert("MAX CHAR!");
             if (spacingCheck) alert("SPACING ONLY??");
 
             return action(formData);
           }}
-          className="flex  flex-col items-center w-full"
         >
           <div className="w-1/2 mb-6">
             <Label htmlFor="email">* Input your email address</Label>
@@ -65,7 +56,6 @@ const Contact = () => {
               required
               maxLength="35"
               className="bg-black"
-              onChange={handleChange}
             />
           </div>
           <div className="w-1/2  mb-6">
@@ -74,7 +64,6 @@ const Contact = () => {
               name="subject"
               type="text"
               maxLength="50"
-              onChange={handleChange}
               placeholder="Subject"
               className="bg-black"
             />
@@ -85,7 +74,6 @@ const Contact = () => {
               name="text"
               type="text"
               required
-              onChange={handleChange}
               maxLength="350"
               placeholder="Type your message here."
               className="h-52 bg-black"
@@ -96,10 +84,14 @@ const Contact = () => {
               variant="outline"
               type="submit"
               className="text-black w-full hover:bg-secondary-300"
+              disabled={isPending}
             >
               Submit
             </Button>
           </div>
+          {message?.success && <span className="text-green-500">Thank you</span>}
+          {message?.exeeded && <span className="text-red-500">{message.exeeded}</span>}
+          {message?.error && <span className="text-red-500">{message.error}</span>}
         </form>
       </div>
     </>
