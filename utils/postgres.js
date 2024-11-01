@@ -6,6 +6,7 @@ const pool = new Pool({
   database: process.env.PG_DATABASE,
   password: process.env.PG_PASSWORD,
   port: process.env.PG_PORT,
+  connectionString: process.env.POSTGRES_URL,
 });
 
 export default pool;
