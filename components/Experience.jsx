@@ -9,21 +9,14 @@ const Experience = () => {
             Experience
           </h3>
 
-          <ItemExperience
-            role="IT Analyst"
-            company="Unilever Indonesia"
-            years="2021 - Present"
-          />
-          <ItemExperience
-            role="IT Business Analyst"
-            company="Rhapsodie.co"
-            years="2019 - 2020"
-          />
+          <ItemExperience role="IT Analyst" company="Unilever Indonesia" years="2021 - Present" />
+
           <ItemExperience
             role="IT Technical Support"
             company="Unilever Indonesia"
             years="2020 - 2021"
           />
+          <ItemExperience role="IT Business Analyst" company="Rhapsodie.co" years="2019 - 2020" />
         </div>
       </section>
     </>

@@ -9,7 +9,6 @@ import handleForm from "@actions/handleForm";
 
 const Contact = () => {
   const [message, action, isPending] = useActionState(handleForm, null);
-  console.log(isPending);
 
   return (
     <>
@@ -47,7 +46,7 @@ const Contact = () => {
             return action(formData);
           }}
         >
-          <div className="w-1/2 mb-6">
+          <div className="lg:w-1/2 mb-6">
             <Label htmlFor="email">* Input your email address</Label>
             <Input
               name="email"
@@ -58,7 +57,7 @@ const Contact = () => {
               className="bg-black"
             />
           </div>
-          <div className="w-1/2  mb-6">
+          <div className="lg:w-1/2  mb-6">
             <Label htmlFor="subject">Input your subject</Label>
             <Input
               name="subject"
@@ -68,7 +67,7 @@ const Contact = () => {
               className="bg-black"
             />
           </div>
-          <div className="w-1/2 mb-6">
+          <div className="lg:w-1/2 mb-6">
             <Label htmlFor="email">* Type a message for us!</Label>
             <Textarea
               name="text"
@@ -79,11 +78,11 @@ const Contact = () => {
               className="h-52 bg-black"
             />
           </div>
-          <div className="w-1/2  mb-6">
+          <div className="lg:w-1/2  mb-6">
             <Button
               variant="outline"
               type="submit"
-              className="text-black w-full hover:bg-secondary-300"
+              className="text-black lg:w-full hover:bg-secondary-300"
               disabled={isPending}
             >
               Submit
